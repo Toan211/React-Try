@@ -3,19 +3,19 @@ import Employee from "./components/Employee";
 
 // nesting component, where father component contain child components
 function App() {
-	console.log("show the list of the employees");
-  
+
 	const showEmployees = true;
+	/*put branket () when use several component*/
 	return (
 		<div className="App">
 			{/*put js code inside branket to use js*/}
-      {console.log("inside the return")}
+			
 			{showEmployees ? (
-				<>
-					<Employee />
-					<Employee />
-					<Employee />
-				</>
+				<> 	{/*child components*/}
+					<Employee name="Cale" role="Intern"/>
+					<Employee name="Bruh" />
+					<Employee name="Lmao" />
+				</> // <> is fragment
 			) : (
 				<p>you can not see the employee</p>
 			)}
