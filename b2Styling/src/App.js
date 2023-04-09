@@ -1,6 +1,6 @@
-import "./App.css";
+import "./index.css";
 import Employee from "./components/Employee";
-import { useState } from "react"; //NOTE - variable associate with the display on the web page, use in VD3
+import { useState } from "react"; //NOTE - variable associate with the display on the web page
 
 
 /*SECTION - VD3 State (hook?)*/
@@ -8,27 +8,19 @@ import { useState } from "react"; //NOTE - variable associate with the display o
 function App() {
 	
 	const [role, setRole] = useState('dev');
-	//NOTE - useState will take default value, role vs setRole is variable that will change
-	//		 	with role is default value (dev), and setRole is whatever u change 
 	const showEmployees = true;
 	/*put branket () when use several component*/
 	return (
-		<div className="App">
+		<div className="App bg-red-300">
 			{/*put js code inside branket to use js*/}
 
 			{showEmployees ? (
 				<>
-					{/*NOTE - onChange will be invoked anytimes we change the values
-						to get what we type in the input, we use e to pass the function to e.target.value
-						*/}
 					<input
 						type="text"
 						onChange={(e) => {
 							console.log(e.target.value);
 							setRole(e.target.value)
-							/*NOTE - never assign a value to the default variable directly
-										always use set whatever state is 
-							*/	
 						}}
 					/>
 					{/*child components*/}
@@ -42,6 +34,6 @@ function App() {
 		</div>
 	);
 }
-//!SECTION 3
+//!SECTION 
 
 export default App;
