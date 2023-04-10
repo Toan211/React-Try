@@ -9,3 +9,4 @@ modal = popup dialog
 Need to install npm and add css dist to outermost js file (index.js) 
 import 'bootstrap/dist/css/bootstrap.min.css'; (in index.js)
 
+form 
