@@ -10,3 +10,7 @@ Need to install npm and add css dist to outermost js file (index.js)
 import 'bootstrap/dist/css/bootstrap.min.css'; (in index.js)
 
 form 
+
+employee: pass from app.js to Employee.js to EditEmployee.js
+provide the name and role to the modal field
+then on Change the value (variable from app.js->employee.js)

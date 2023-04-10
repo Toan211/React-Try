@@ -17,7 +17,7 @@ import EditEmployee from "./EditEmployee";
 function Employee(props) {
 	return (
 		<>
-			<div class="m-2 py-8 px-8 max-w-sm bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
+			<div class="min-w-[350px] max-w-[350px] m-2 py-8 px-8 bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
 				<img
 					class="object-cover h-[100px] w-[100px] block mx-auto rounded-full sm:mx-0 sm:shrink-0"
 					src={props.img}
@@ -28,7 +28,8 @@ function Employee(props) {
 						<p class="text-lg text-black font-semibold">{props.name}</p>
 						<p class="text-slate-500 font-medium">{props.role}</p>
 					</div>
-					<EditEmployee/>
+					<EditEmployee name={props.name} role={props.role} />
+					{/* provive the name and role to the modal field */}
 				</div>
 			</div>
 		</>
