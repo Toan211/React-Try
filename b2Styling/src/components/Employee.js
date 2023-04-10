@@ -1,5 +1,7 @@
 //this is components
 
+import EditEmployee from "./EditEmployee";
+
 /*REVIEW - VD2
         1. props allow us to pass specific values for diff variable from a template components to main component
         2.1. When inside HTML tag, no quote around string, variable inside {}
@@ -26,9 +28,7 @@ function Employee(props) {
 						<p class="text-lg text-black font-semibold">{props.name}</p>
 						<p class="text-slate-500 font-medium">{props.role}</p>
 					</div>
-					<button class="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">
-						Update
-					</button>
+					<EditEmployee/>
 				</div>
 			</div>
 		</>

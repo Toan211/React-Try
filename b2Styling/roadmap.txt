@@ -1,0 +1,11 @@
+this will summarize all contents of the lessons
+
+3. tailwind
+
+4. array of data (mapping) fetch from component and their unique key (uuid)
+
+5. modals component, react bootstrap
+modal = popup dialog
+Need to install npm and add css dist to outermost js file (index.js) 
+import 'bootstrap/dist/css/bootstrap.min.css'; (in index.js)
+
