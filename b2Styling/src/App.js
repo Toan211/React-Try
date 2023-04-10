@@ -1,11 +1,50 @@
 import "./index.css";
 import Employee from "./components/Employee";
 import { useState } from "react"; //NOTE - variable associate with the display on the web page
+import {v4 as uuidv4} from 'uuid'; //npm uuid
 
 /*SECTION - VD3 State (hook?)*/
 // nesting component, where father component contain child components
 function App() {
 	const [role, setRole] = useState("dev");
+	// array of employees, which have an object of each employee
+	const [employees, setEmployees] = useState([
+		{
+			name: "Cale",
+			role: "Developer",
+			img: "https://images.pexels.com/photos/13733057/pexels-photo-13733057.jpeg",
+		},
+		{
+			name: "Sal",
+			role: "Intern",
+			img: "https://images.pexels.com/photos/13733057/pexels-photo-13733057.jpeg",
+		},
+		{
+			name: "Ale",
+			role: "Junior",
+			img: "https://images.pexels.com/photos/13733057/pexels-photo-13733057.jpeg",
+		},
+		{
+			name: "Bulan",
+			role: "Senior",
+			img: "https://images.pexels.com/photos/13733057/pexels-photo-13733057.jpeg",
+		},
+		{
+			name: "Diluc",
+			role: "Developer",
+			img: "https://images.pexels.com/photos/13733057/pexels-photo-13733057.jpeg",
+		},
+		{
+			name: "Eula",
+			role: "Tester",
+			img: "https://images.pexels.com/photos/13733057/pexels-photo-13733057.jpeg",
+		},
+		{
+			name: "Fi",
+			role: "Manager",
+			img: "https://images.pexels.com/photos/13733057/pexels-photo-13733057.jpeg",
+		},
+	]);
 	const showEmployees = true;
 	/*put branket () when use several component*/
 	return (
@@ -23,16 +62,22 @@ function App() {
 					/>
 					{/*child components*/}
 					<div className="flex flex-wrap justify-center ">
-						<Employee name="Cale" role="Intern" img="https://images.pexels.com/photos/13733057/pexels-photo-13733057.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-						<Employee name="Bruh" role={role} img="https://images.pexels.com/photos/13733057/pexels-photo-13733057.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>
-						<Employee name="Lmao" img="https://images.pexels.com/photos/13733057/pexels-photo-13733057.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>
-						<Employee name="Cale" role="Intern" img="https://images.pexels.com/photos/13733057/pexels-photo-13733057.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-						<Employee name="Bruh" role={role} img="https://images.pexels.com/photos/13733057/pexels-photo-13733057.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>
-						<Employee name="Lmao" img="https://images.pexels.com/photos/13733057/pexels-photo-13733057.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>
-						<Employee name="Cale" role="Intern" img="https://images.pexels.com/photos/13733057/pexels-photo-13733057.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-						<Employee name="Bruh" role={role} img="https://images.pexels.com/photos/13733057/pexels-photo-13733057.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>
-						<Employee name="Lmao" img="https://images.pexels.com/photos/13733057/pexels-photo-13733057.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>
-
+						{
+							// map funtion on an array that go thought elements and execute each one
+							employees.map((employee) => {
+								// return multiple line use parentheses ();
+								return (
+									<Employee
+									/*NOTE - id make each emplyee unique, so react can update that id only, instead of rerender all the page
+									or just use uuid */
+										key={uuidv4()}
+										name={employee.name}
+										role={employee.role}
+										img={employee.img}
+									/>
+								);
+							})
+						}
 					</div>
 				</> // <> is fragment
 			) : (
@@ -42,5 +87,7 @@ function App() {
 	);
 }
 //!SECTION
+
+/*REVIEW - Guid: globally unique identifier or Uuid: universal unique identifier (npm uuid) */
 
 export default App;
