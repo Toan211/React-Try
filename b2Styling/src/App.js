@@ -1,7 +1,9 @@
 import "./index.css";
 import Employee from "./components/Employee";
 import { useState } from "react"; //NOTE - variable associate with the display on the web page
+import AddEmployee from "./components/AddEmployee";
 // import { v4 as uuidv4 } from "uuid"; //npm uuid
+
 
 /*SECTION - VD3 State (hook?)*/
 // nesting component, where father component contain child components
@@ -57,8 +59,7 @@ function App() {
 		console.log("this is main function of update employee");
 		//create a new list and replace the state it
 		const updateEmployee = employees.map((emp) => {
-			if (id == emp.id)
-			{
+			if (id == emp.id) {
 				/*NOTE - ... expand attribute of employee, keyword: spreading
 				Basically, we dont need to change anything beside the thing we wanna change
 					for example, instead of ...emp, we can use:
@@ -67,9 +68,9 @@ function App() {
 						and other attributes)
 				If dont do this, and miss some attributes, then the web will alarm undefined
 				 */
-				return {...emp, name:newName, role:newRole}
+				return { ...emp, name: newName, role: newRole };
 			}
-			return emp
+			return emp;
 		});
 		setEmployees(updateEmployee);
 	};
@@ -112,11 +113,13 @@ function App() {
 							})
 						}
 					</div>
+					<AddEmployee/>
 				</> // <> is fragment
 			) : (
 				<p>you can not see the employee</p>
 			)}
 		</div>
+		
 	);
 }
 //!SECTION
