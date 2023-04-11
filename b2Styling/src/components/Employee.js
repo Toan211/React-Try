@@ -28,7 +28,13 @@ function Employee(props) {
 						<p class="text-lg text-black font-semibold">{props.name}</p>
 						<p class="text-slate-500 font-medium">{props.role}</p>
 					</div>
-					<EditEmployee name={props.name} role={props.role} />
+					<EditEmployee
+						//same, id need to pass down to editEmployee.js
+						id={props.id}
+						name={props.name}
+						role={props.role}
+						updateEmployee={props.updateEmployee}
+					/>
 					{/* provive the name and role to the modal field */}
 				</div>
 			</div>

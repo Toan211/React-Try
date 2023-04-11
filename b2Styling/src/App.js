@@ -1,7 +1,7 @@
 import "./index.css";
 import Employee from "./components/Employee";
 import { useState } from "react"; //NOTE - variable associate with the display on the web page
-import {v4 as uuidv4} from 'uuid'; //npm uuid
+// import { v4 as uuidv4 } from "uuid"; //npm uuid
 
 /*SECTION - VD3 State (hook?)*/
 // nesting component, where father component contain child components
@@ -10,41 +10,70 @@ function App() {
 	// array of employees, which have an object of each employee
 	const [employees, setEmployees] = useState([
 		{
+			id: 1,
 			name: "Cale",
 			role: "Developer",
 			img: "https://images.pexels.com/photos/13733057/pexels-photo-13733057.jpeg",
 		},
 		{
+			id: 2,
 			name: "Sal",
 			role: "Intern",
 			img: "https://images.pexels.com/photos/13733057/pexels-photo-13733057.jpeg",
 		},
 		{
+			id: 3,
 			name: "Ale",
 			role: "Junior",
 			img: "https://images.pexels.com/photos/13733057/pexels-photo-13733057.jpeg",
 		},
 		{
+			id: 4,
 			name: "Bulan",
 			role: "Senior",
 			img: "https://images.pexels.com/photos/13733057/pexels-photo-13733057.jpeg",
 		},
 		{
+			id: 5,
 			name: "Diluc",
 			role: "Developer",
 			img: "https://images.pexels.com/photos/13733057/pexels-photo-13733057.jpeg",
 		},
 		{
+			id: 6,
 			name: "Eula",
 			role: "Tester",
 			img: "https://images.pexels.com/photos/13733057/pexels-photo-13733057.jpeg",
 		},
 		{
+			id: 7,
 			name: "Fi",
 			role: "Manager",
 			img: "https://images.pexels.com/photos/13733057/pexels-photo-13733057.jpeg",
 		},
 	]);
+
+	const updateEmployee = (id, newName, newRole) => {
+		console.log("this is main function of update employee");
+		//create a new list and replace the state it
+		const updateEmployee = employees.map((emp) => {
+			if (id == emp.id)
+			{
+				/*NOTE - ... expand attribute of employee, keyword: spreading
+				Basically, we dont need to change anything beside the thing we wanna change
+					for example, instead of ...emp, we can use:
+						img: emp.img (since we have img in employee list
+						id: emp.id
+						and other attributes)
+				If dont do this, and miss some attributes, then the web will alarm undefined
+				 */
+				return {...emp, name:newName, role:newRole}
+			}
+			return emp
+		});
+		setEmployees(updateEmployee);
+	};
+
 	const showEmployees = true;
 	/*put branket () when use several component*/
 	return (
@@ -68,12 +97,16 @@ function App() {
 								// return multiple line use parentheses ();
 								return (
 									<Employee
-									/*NOTE - id make each emplyee unique, so react can update that id only, instead of rerender all the page
+										/*NOTE - id make each emplyee unique, so react can update that id only, instead of rerender all the page
 									or just use uuid */
-										key={uuidv4()}
+										key={employee.id}
+										//id need to pass down to other component, employee.js
+										id={employee.id}
 										name={employee.name}
 										role={employee.role}
 										img={employee.img}
+										//this will go into employee.js, EditEmplyee
+										updateEmployee={updateEmployee}
 									/>
 								);
 							})

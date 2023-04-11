@@ -33,7 +33,16 @@ function EditEmployee(props) {
 					<Modal.Title>Update Employee</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
-					<form id="editModal" class="w-full max-w-sm">
+					<form onSubmit={(e)=>{
+                        handleClose(); //automatic close the modal
+                        e.preventDefault(); // prevent page refreshing
+                        console.log('this is edit employee order');
+                        //we dont change id, but we change the name and role from that id (id is the key)
+                        //also, name and role is state variable from above in this js file
+                        console.log(props.id, name, role);
+                        props.updateEmployee(props.id, name, role);
+                    }}
+                    id="editModal" class="w-full max-w-sm">
 						<div class="md:flex md:items-center mb-6">
 							<div class="md:w-1/3">
 								{/* label for -> input id name  */}
@@ -98,6 +107,7 @@ function EditEmployee(props) {
 					</button>
 					{/* this button will communicate with the form from form id */}
 					<button
+
 						class="bg-purple-600 hover:bg-purple-800 text-white transition 
                         duration-300 ease-out font-semibold py-2 px-3 rounded"
 						form="editModal"
