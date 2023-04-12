@@ -24,7 +24,7 @@ function AddEmployee(props) {
 			{/*onClick={handleShow} allow the modal to popup, Button is custom bootstrap component */}
 			<button
 				onClick={handleShow}
-				class="transition duration-300 ease-out mx-auto block m-3
+				className="transition duration-300 ease-out mx-auto block m-3
 				bg-purple-600 hover:bg-purple-800 text-white font-semibold py-2 px-3 rounded"
 			>
 				+ Add Employee
@@ -46,21 +46,21 @@ function AddEmployee(props) {
 							props.newEmployee(name, role, img);
 						}}
 						id="editModal"
-						class="w-full max-w-sm"
+						className="w-full max-w-sm"
 					>
-						<div class="md:flex md:items-center mb-6">
-							<div class="md:w-1/3">
+						<div className="md:flex md:items-center mb-6">
+							<div className="md:w-1/3">
 								{/* label for -> input id name  */}
 								<label
-									class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+									className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
 									for="name"
 								>
 									Full Name
 								</label>
 							</div>
-							<div class="md:w-2/3">
+							<div className="md:w-2/3">
 								<input
-									class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+									className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
 									id="name"
 									type="text"
 									placeholder="Joe Mama"
@@ -72,19 +72,19 @@ function AddEmployee(props) {
 								/>
 							</div>
 						</div>
-						<div class="md:flex md:items-center mb-6">
-							<div class="md:w-1/3">
+						<div className="md:flex md:items-center mb-6">
+							<div className="md:w-1/3">
 								{/* label for -> input id name  */}
 								<label
-									class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+									className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
 									for="role"
 								>
 									Role
 								</label>
 							</div>
-							<div class="md:w-2/3">
+							<div className="md:w-2/3">
 								<input
-									class="bg-gray-200 appearance-none border-2 border-gray-200 
+									className="bg-gray-200 appearance-none border-2 border-gray-200 
                                     rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none
                                      focus:bg-white focus:border-purple-500"
 									id="role"
@@ -98,19 +98,19 @@ function AddEmployee(props) {
 							</div>
 						</div>
 
-						<div class="md:flex md:items-center mb-6">
-							<div class="md:w-1/3">
+						<div className="md:flex md:items-center mb-6">
+							<div className="md:w-1/3">
 								{/* label for -> input id name  */}
 								<label
-									class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+									className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
 									for="img"
 								>
 									Image URL
 								</label>
 							</div>
-							<div class="md:w-2/3">
+							<div className="md:w-2/3">
 								<input
-									class="bg-gray-200 appearance-none border-2 border-gray-200 
+									className="bg-gray-200 appearance-none border-2 border-gray-200 
                                     rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none
                                      focus:bg-white focus:border-purple-500"
 									id="img"
@@ -128,7 +128,7 @@ function AddEmployee(props) {
 				</Modal.Body>
 				<Modal.Footer>
 					<button
-						class="bg-slate-500 hover:bg-slate-800 text-white transition 
+						className="bg-slate-500 hover:bg-slate-800 text-white transition 
                         duration-300 ease-out font-semibold py-2 px-3 rounded"
 						onClick={handleClose}
 					>
@@ -136,7 +136,7 @@ function AddEmployee(props) {
 					</button>
 					{/* this button will communicate with the form from form id */}
 					<button
-						class="bg-purple-600 hover:bg-purple-800 text-white transition 
+						className="bg-purple-600 hover:bg-purple-800 text-white transition 
                         duration-300 ease-out font-semibold py-2 px-3 rounded"
 						onClick={handleClose} //2nd way to do auto close form when click
 						form="editModal"

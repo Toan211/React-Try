@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from "uuid"; //npm uuid
 import Employee from "./components/Employee";
 import AddEmployee from "./components/AddEmployee";
 import EditEmployee from "./components/EditEmployee";
+import Header from "./components/Header";
 
 /*SECTION - VD3 State (hook?)*/
 // nesting component, where father component contain child components
@@ -89,20 +90,16 @@ function App() {
 	const showEmployees = true;
 	/*put branket () when use several component*/
 	return (
-		<div class="App">
+		// need to set min height to make bg full screen
+		<div className="App bg-gray-300 min-h-screen">
+			<Header/>
 			{/*put js code inside branket to use js*/}
 
 			{showEmployees ? (
 				<>
-					<input
-						type="text"
-						onChange={(e) => {
-							console.log(e.target.value);
-							setRole(e.target.value);
-						}}
-					/>
+					
 					{/*child components*/}
-					<div className="flex flex-wrap justify-center ">
+					<div className="flex flex-wrap justify-center my-3">
 						{
 							// map funtion on an array that go thought elements and execute each one
 							employees.map((employee) => {

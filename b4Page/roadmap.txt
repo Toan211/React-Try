@@ -29,8 +29,10 @@ need clear up the state of add button (on form submit or button click) with setS
 pass component down as a property instead of function
 meanning pass direct from app -> edit instead of app -> employee -> edit
 define editEmployee inside app.js
-
-
+ 
+ 10.
+tailwind navbar
+need install npm @headlessui/react vs @heroicons/react
 
 
 
