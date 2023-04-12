@@ -1,6 +1,6 @@
 //this is components
 
-import EditEmployee from "./EditEmployee";
+// import EditEmployee from "./EditEmployee";
 
 /*REVIEW - VD2
         1. props allow us to pass specific values for diff variable from a template components to main component
@@ -28,13 +28,16 @@ function Employee(props) {
 						<p class="text-lg text-black font-semibold">{props.name}</p>
 						<p class="text-slate-500 font-medium">{props.role}</p>
 					</div>
+					{/*ANCHOR - we dont need to use this anymore, already define in app.js
 					<EditEmployee
 						//same, id need to pass down to editEmployee.js
 						id={props.id}
 						name={props.name}
 						role={props.role}
 						updateEmployee={props.updateEmployee}
-					/>
+					/> */}
+					{props.editEmployee}
+
 					{/* provive the name and role to the modal field */}
 				</div>
 			</div>

@@ -25,6 +25,10 @@ from app.js, make new function
 set employee list, take an exist employee + an additional employee 
 need clear up the state of add button (on form submit or button click) with setSth('')
 
+9.  
+pass component down as a property instead of function
+meanning pass direct from app -> edit instead of app -> employee -> edit
+define editEmployee inside app.js
 
 
 
