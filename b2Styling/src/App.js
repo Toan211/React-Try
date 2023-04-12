@@ -2,8 +2,7 @@ import "./index.css";
 import Employee from "./components/Employee";
 import { useState } from "react"; //NOTE - variable associate with the display on the web page
 import AddEmployee from "./components/AddEmployee";
-// import { v4 as uuidv4 } from "uuid"; //npm uuid
-
+import { v4 as uuidv4 } from "uuid"; //npm uuid
 
 /*SECTION - VD3 State (hook?)*/
 // nesting component, where father component contain child components
@@ -75,6 +74,19 @@ function App() {
 		setEmployees(updateEmployee);
 	};
 
+	const newEmployee = (name, role, img) => {
+		/*NOTE - set employee list, take an exist employee + an additional employee 
+					...take each employee and put in set employee, then add new employee to that
+		*/
+		const newEmployee = {
+			id: uuidv4(),
+			name: name,
+			role: role,
+			img: img,
+		};
+		setEmployees([...employees, newEmployee]);
+	};
+
 	const showEmployees = true;
 	/*put branket () when use several component*/
 	return (
@@ -113,13 +125,12 @@ function App() {
 							})
 						}
 					</div>
-					<AddEmployee/>
+					<AddEmployee newEmployee={newEmployee}/>
 				</> // <> is fragment
 			) : (
 				<p>you can not see the employee</p>
 			)}
 		</div>
-		
 	);
 }
 //!SECTION

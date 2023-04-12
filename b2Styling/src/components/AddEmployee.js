@@ -2,16 +2,22 @@ import React, { useState } from "react";
 // import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
-
 // add dont preload data, any data will be new
 function AddEmployee(props) {
 	//NOTE - empty string cus we dont need default value
-	const [name, setName] = useState('');
-	const [role, setRole] = useState('');
+	const [name, setName] = useState("");
+	const [role, setRole] = useState("");
+	const [img, setImg] = useState("");
 
 	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
+
+	const resetState = () => {
+		setName("");
+		setRole("");
+		setImg("");
+	};
 
 	return (
 		<>
@@ -35,9 +41,9 @@ function AddEmployee(props) {
 				<Modal.Body>
 					<form
 						onSubmit={(e) => {
-							handleClose(); //automatic close the modal
+							resetState();
 							e.preventDefault(); // prevent page refreshing
-							props.updateEmployee(props.id, name, role);
+							props.newEmployee(name, role, img);
 						}}
 						id="editModal"
 						class="w-full max-w-sm"
@@ -110,9 +116,9 @@ function AddEmployee(props) {
 									id="img"
 									placeholder="No"
 									type="text"
-									value={role}
+									value={img}
 									onChange={(e) => {
-										setRole(e.target.value);
+										setImg(e.target.value);
 									}}
 								/>
 							</div>
@@ -132,6 +138,7 @@ function AddEmployee(props) {
 					<button
 						class="bg-purple-600 hover:bg-purple-800 text-white transition 
                         duration-300 ease-out font-semibold py-2 px-3 rounded"
+						onClick={handleClose} //2nd way to do auto close form when click
 						form="editModal"
 					>
 						Add
