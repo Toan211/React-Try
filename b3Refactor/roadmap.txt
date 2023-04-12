@@ -1,0 +1,32 @@
+this will summarize all contents of the lessons
+
+3. tailwind
+
+4. array of data (mapping) fetch from component and their unique key (uuid)
+
+5. modals component, react bootstrap
+modal = popup dialog
+Need to install npm and add css dist to outermost js file (index.js) 
+import 'bootstrap/dist/css/bootstrap.min.css'; (in index.js)
+
+6.form 
+
+7.update Employee
+employee: pass from app.js to Employee.js to EditEmployee.js
+provide the name and role to the modal field
+then on Change the value (variable from app.js->employee.js)
+
+For single page, avoid page refreshes, data must be update dynamically
+to change state from parent, need pass down a callback function to execute when we want to change the state in the original component   
+
+8.add new employee
+Make new component named AddEmployee.js 
+from app.js, make new function
+set employee list, take an exist employee + an additional employee 
+need clear up the state of add button (on form submit or button click) with setSth('')
+
+
+
+
+
+
