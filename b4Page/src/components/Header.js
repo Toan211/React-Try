@@ -17,151 +17,104 @@ function classNames(...classes) {
 //NOTE - anything inside the open close header tag going to be added to props in a property called children
 export default function Header(props) {
 	return (
-		<Disclosure as="nav" className="bg-gray-800">
-			{({ open }) => (
-				<>
-					<div className="mx-auto px-2 sm:px-6 lg:px-8">
-						<div className="relative flex h-14 items-center justify-between">
-							<div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-								{/* Mobile menu button*/}
-								<Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-									<span className="sr-only">Open main menu</span>
-									{open ? (
-										<XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-									) : (
-										<Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-									)}
-								</Disclosure.Button>
-							</div>
-							<div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-								<div className="hidden sm:ml-6 sm:block">
-									<div className="flex space-x-4">
-										{navigation.map((item) => (
-											<NavLink
-												key={item.name}
-												//use to props to contain the url of the link we point to, not href
-												to={item.href}
-												/* className={classNames(
+		<>
+			<Disclosure as="nav" className="bg-gray-800">
+				{({ open }) => (
+					<>
+						<div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+							<div className="relative flex h-14 items-center justify-between">
+								<div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+									{/* Mobile menu button*/}
+									<Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+										<span className="sr-only">Open main menu</span>
+										{open ? (
+											<XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+										) : (
+											<Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+										)}
+									</Disclosure.Button>
+								</div>
+								<div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+									<div className="hidden sm:ml-6 sm:block">
+										<div className="flex space-x-4">
+											{/*ANCHOR header link control on destop */}
+											{navigation.map((item) => (
+												<NavLink
+													key={item.name}
+													//use to props to contain the url of the link we point to, not href
+													to={item.href}
+													/* className={classNames(
 													item.current
 														? "no-underline bg-gray-900 text-white"
 														: "no-underline text-gray-300 hover:bg-gray-700 hover:text-white",
 													"rounded-md px-3 py-2 text-sm font-medium"
 												)} */
-												//NOTE - we want to make active a object, so we will pass it
-												//and destructure this object to get us the attribute on that object called isActive
-												className={({ isActive }) => {
-													return (
-														"rounded-md px-3 py-2 text-base font-bold no-underline uppercase " +
-														(!isActive
-															? "text-gray-300 hover:bg-gray-700 hover:text-white"
-															: "bg-gray-900 text-white")
-													);
-												}}
-											>
-												{item.name}
-											</NavLink>
-										))}
+													//NOTE - we want to make active a object, so we will pass it
+													//and destructure this object to get us the attribute on that object called isActive
+													className={({ isActive }) => {
+														return (
+															"rounded-md px-3 py-2 text-base font-bold no-underline uppercase " +
+															(!isActive
+																? "text-gray-300 hover:bg-gray-700 hover:text-white"
+																: "bg-gray-900 text-white")
+														);
+													}}
+												>
+													{item.name}
+												</NavLink>
+											))}
+										</div>
 									</div>
 								</div>
-							</div>
-							<div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-								<button
-									type="button"
-									className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-								>
-									<span className="sr-only">View notifications</span>
-									<BellIcon className="h-6 w-6" aria-hidden="true" />
-								</button>
-
-								{/* Profile dropdown */}
-								<Menu as="div" className="relative ml-3">
-									<div>
-										<Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-											<span className="sr-only">Open user menu</span>
-										</Menu.Button>
-									</div>
-									<Transition
-										as={Fragment}
-										enter="transition ease-out duration-100"
-										enterFrom="transform opacity-0 scale-95"
-										enterTo="transform opacity-100 scale-100"
-										leave="transition ease-in duration-75"
-										leaveFrom="transform opacity-100 scale-100"
-										leaveTo="transform opacity-0 scale-95"
+								<div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+									<button
+										type="button"
+										className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
 									>
-										<Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-											<Menu.Item>
-												{({ active }) => (
-													<a
-														href="#"
-														className={classNames(
-															active ? "bg-gray-100" : "",
-															"block px-4 py-2 text-sm text-gray-700"
-														)}
-													>
-														Your Profile
-													</a>
-												)}
-											</Menu.Item>
-											<Menu.Item>
-												{({ active }) => (
-													<a
-														href="#"
-														className={classNames(
-															active ? "bg-gray-100" : "",
-															"block px-4 py-2 text-sm text-gray-700"
-														)}
-													>
-														Settings
-													</a>
-												)}
-											</Menu.Item>
-											<Menu.Item>
-												{({ active }) => (
-													<a
-														href="#"
-														className={classNames(
-															active ? "bg-gray-100" : "",
-															"block px-4 py-2 text-sm text-gray-700"
-														)}
-													>
-														Sign out
-													</a>
-												)}
-											</Menu.Item>
-										</Menu.Items>
-									</Transition>
-								</Menu>
+										<span className="sr-only">View notifications</span>
+										<BellIcon className="h-6 w-6" aria-hidden="true" />
+									</button>
+								</div>
 							</div>
 						</div>
-					</div>
 
-					<Disclosure.Panel className="sm:hidden">
-						<div className="space-y-1 px-2 pb-3 pt-2">
-							{navigation.map((item) => (
-								<Disclosure.Button
-									key={item.name}
-									as="a"
-									href={item.href}
-									className={classNames(
-										item.current
-											? "bg-gray-900 text-white"
-											: "text-gray-300 hover:bg-gray-700 hover:text-white",
-										"block rounded-md px-3 py-2 text-base font-medium"
-									)}
-									aria-current={item.current ? "page" : undefined}
-								>
-									{item.name}
-								</Disclosure.Button>
-							))}
-						</div>
-					</Disclosure.Panel>
-					{/*ANCHOR - render all children that are inside of the header tag, 
+						<Disclosure.Panel className="sm:hidden">
+							<div className="space-y-1 px-2 pb-3 pt-2">
+								{/*ANCHOR header link control on mobile */}
+								{navigation.map((item) => (
+									<NavLink
+										key={item.name}
+										to={item.href}
+										className={({ isActive }) => {
+											return (
+												"block rounded-md px-3 py-2 text-base font-medium no-underline uppercase " +
+												(!isActive
+													? "text-gray-300 hover:bg-gray-700 hover:text-white"
+													: "bg-gray-900 text-white")
+											);
+										}}
+									>
+										{item.name}
+									</NavLink>
+								))}
+							</div>
+						</Disclosure.Panel>
+						{/*ANCHOR - render all children that are inside of the header tag, 
                                     meaning Employee tag will be insert into props.children  */}
+					</>
+				)}
+			</Disclosure>
+			{/* NOTE - we want children to be outside of disclosure section so it wont be a part of header 
+					and we only will return 1 tag 
+							=> surround it inside fragment*/}
+			<div className=" bg-gray-300">
+				{/*make bg of all page gray*/}
+				<div className="max-w-7xl mx-auto min-h-screen p-2">
+					{/*//* anything inside this div will have that p-2 (padding), blabla => style 
+					*/}
 					{props.children}
-					<footer>Example</footer>
-				</>
-			)}
-		</Disclosure>
+				</div>
+			</div>
+		</>
 	);
 }

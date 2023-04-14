@@ -60,4 +60,7 @@ NavLink use "to" to contain url
 if the error of useLocation showup, meaning u are not within BrowserRouter (meaning header should also be inside that)
 if still error from BrowserRouter , use <> </>
 
+14. clean code vs fixing stuff from header
+class App should belong to app.js, meanwhile other belong to header.js,
+    so they can have all the style in the same way, after header
 

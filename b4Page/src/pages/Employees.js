@@ -87,16 +87,16 @@ function Employees() {
 	const showEmployees = true;
 	/*put branket () when use several component*/
 	return (
-		// need to set min height to make bg full screen
-		<div className="App bg-gray-300 min-h-screen">
-			
+		//!class App should belong to app.js, meanwhile other belong to header.js
+		// <div className="App bg-gray-300 min-h-screen">
+		<div className="">	
 			{/*put js code inside branket to use js*/}
 
 			{showEmployees ? (
 				<>
 					
 					{/*child components*/}
-					<div className="flex flex-wrap justify-center my-1">
+					<div className="flex flex-wrap justify-center">
 						{
 							// map funtion on an array that go thought elements and execute each one
 							employees.map((employee) => {
