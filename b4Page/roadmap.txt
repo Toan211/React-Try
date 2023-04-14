@@ -34,5 +34,23 @@ define editEmployee inside app.js
 tailwind navbar
 need install npm @headlessui/react vs @heroicons/react
 
+11. 
+page
+switch page and highlight the active page
+extract employee file instead of put all thing in app.js
+surround pages with a header (page elements)
+make props of header, and render their child inside their tag
+
+12.router
+npm install neact-router-dom
+need import { BrowserRouter, Routes, Route } from "react-router-dom";
+    <BrowserRouter>
+        <Routes>
+            {/* structure of making a route: path = path and element = component */}
+            <Route path="/employees" element={<Employees />} />
+        </Routes>
+    </BrowserRouter>
+
+then change the route of the header
 
 
