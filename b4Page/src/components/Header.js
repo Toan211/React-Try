@@ -1,12 +1,13 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { NavLink } from "react-router-dom";
 
 const navigation = [
-	{ name: "Employees", href: "/employees", current: true },
-	{ name: "Customer", href: "/customers", current: false },
-	{ name: "Projects", href: "#", current: false },
-	{ name: "Calendar", href: "#", current: false },
+	{ name: "Employees", href: "/employees" },
+	{ name: "Customer", href: "/customers" },
+	{ name: "Projects", href: "/other" },
+	{ name: "Calendar", href: "/other2" },
 ];
 
 function classNames(...classes) {
@@ -14,7 +15,7 @@ function classNames(...classes) {
 }
 
 //NOTE - anything inside the open close header tag going to be added to props in a property called children
-export default function Header( props) {
+export default function Header(props) {
 	return (
 		<Disclosure as="nav" className="bg-gray-800">
 			{({ open }) => (
@@ -33,23 +34,32 @@ export default function Header( props) {
 								</Disclosure.Button>
 							</div>
 							<div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-								
 								<div className="hidden sm:ml-6 sm:block">
 									<div className="flex space-x-4">
 										{navigation.map((item) => (
-											<a
+											<NavLink
 												key={item.name}
-												href={item.href}
-												className={classNames(
+												//use to props to contain the url of the link we point to, not href
+												to={item.href}
+												/* className={classNames(
 													item.current
 														? "no-underline bg-gray-900 text-white"
 														: "no-underline text-gray-300 hover:bg-gray-700 hover:text-white",
 													"rounded-md px-3 py-2 text-sm font-medium"
-												)}
-												aria-current={item.current ? "page" : undefined}
+												)} */
+												//NOTE - we want to make active a object, so we will pass it
+												//and destructure this object to get us the attribute on that object called isActive
+												className={({ isActive }) => {
+													return (
+														"rounded-md px-3 py-2 text-base font-bold no-underline uppercase " +
+														(!isActive
+															? "text-gray-300 hover:bg-gray-700 hover:text-white"
+															: "bg-gray-900 text-white")
+													);
+												}}
 											>
 												{item.name}
-											</a>
+											</NavLink>
 										))}
 									</div>
 								</div>
@@ -68,7 +78,6 @@ export default function Header( props) {
 									<div>
 										<Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
 											<span className="sr-only">Open user menu</span>
-											
 										</Menu.Button>
 									</div>
 									<Transition
@@ -147,9 +156,9 @@ export default function Header( props) {
 							))}
 						</div>
 					</Disclosure.Panel>
-                    {/*ANCHOR - render all children that are inside of the header tag, 
+					{/*ANCHOR - render all children that are inside of the header tag, 
                                     meaning Employee tag will be insert into props.children  */}
-                    {props.children}
+					{props.children}
 					<footer>Example</footer>
 				</>
 			)}

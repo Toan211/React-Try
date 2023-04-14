@@ -53,4 +53,11 @@ need import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 then change the route of the header
 
+13. active page
+NavLink have the active capability built into it 
+from "react-router-dom"
+NavLink use "to" to contain url 
+if the error of useLocation showup, meaning u are not within BrowserRouter (meaning header should also be inside that)
+if still error from BrowserRouter , use <> </>
+
 

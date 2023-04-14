@@ -10,23 +10,24 @@ import Customers from "./pages/Customers";
 // element component
 import Header from "./components/Header";
 
-
 // nesting component, where father component contain child components
 function App() {
 	/*put branket () when use several component*/
 	return (
-		//NOTE - header wrapping employee component
-		<Header>
+		<>
 			{/*ANCHOR - BrowserRouter surround all our route */}
 			<BrowserRouter>
-				<Routes>
-					{/*ANCHOR - structure of making a route: path = path and element = component */}
-					<Route path="/employees" element={<Employees />} />
+				{/*NOTE - header wrapping employee component */}
+				<Header>
+					<Routes>
+						{/*ANCHOR - structure of making a route: path = path and element = component */}
+						<Route path="/employees" element={<Employees />} />
 
-					<Route path="/customers" element={<Customers />} />
-				</Routes>
+						<Route path="/customers" element={<Customers />} />
+					</Routes>
+				</Header>
 			</BrowserRouter>
-		</Header>
+		</>
 	);
 }
 
