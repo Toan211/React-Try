@@ -64,3 +64,17 @@ if still error from BrowserRouter , use <> </>
 class App should belong to app.js, meanwhile other belong to header.js,
     so they can have all the style in the same way, after header
 
+15. use eff hook
+fetch data from api 
+Use effect: allow some section of code will execute anytimes states change
+                and it will run after the page initually loaded
+            something that happen when do something else, side effect
+    Mutation, subscription, timers, logging, and other side eff are not allow inside the function of component
+        cus of bug and stuff, so we can put these inside unse eff
+    Use effect execute once per page load & once per each change in state
+    UseEffect is a function 
+    It will update the state as it executes after the state is update 
+
+We want it to be defined within our functional component (meaning inside the {} of a function)
+
+16: useEffect with dependency array
