@@ -91,3 +91,14 @@ This is second function we can pass as a argument
 
 useEffect can have multiple times with different dependency
 There is also a thing call useEffect cleanup
+
+17: fetch data from API
+make Definition key
+often time for an API u need a key to identity your access to use that API
+that require a key which make your application insecure, you dont want that key out =>ppl use your key => u lose money
+    => use API key on the backend application ., connect to the backend
+        => for learning, use api no key
+
+Using fetch to make request to that api
+
+18: URL and param

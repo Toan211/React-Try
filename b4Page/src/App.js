@@ -6,10 +6,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 //page components
 import Employees from "./pages/Employees";
 import Customers from "./pages/Customers";
+import Dictionary from "./pages/Dictionary";
+import Definition from "./pages/Definition";
 
 // element component
 import Header from "./components/Header";
-import Dictionary from "./components/Dictionary";
+
 
 // nesting component, where father component contain child components
 function App() {
@@ -24,6 +26,7 @@ function App() {
 						{/*ANCHOR - structure of making a route: path = path and element = component */}
 						<Route path="/employees" element={<Employees />} />
 						<Route path="/dictionary" element={<Dictionary />} />
+						<Route path="/definition" element={<Definition />} />
 						<Route path="/customers" element={<Customers />} />
 					</Routes>
 				</Header>
