@@ -11,6 +11,7 @@ import Definition from "./pages/Definition";
 
 // element component
 import Header from "./components/Header";
+import NotFound from "./components/NotFound";
 
 // nesting component, where father component contain child components
 function App() {
@@ -27,6 +28,8 @@ function App() {
 						<Route path="/dictionary" element={<Dictionary />} /> {/* // we are going to use search bar here */}
 						<Route path="/definition/:search" element={<Definition />} />
 						<Route path="/customers" element={<Customers />} />
+						<Route path="/404" element={<NotFound />} />  {/* we want to catch all the garbage link in our link too*/}
+						<Route path="*" element={<NotFound />} /> {/* * mean anything beside the link we define*/}
 					</Routes>
 				</Header>
 			</BrowserRouter>

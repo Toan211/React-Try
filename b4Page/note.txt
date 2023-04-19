@@ -1,0 +1,3 @@
+API:
+application programing interface 
+giúp 2 ứng dụng tương tác và trao đổi qua lại lẫn nhau
