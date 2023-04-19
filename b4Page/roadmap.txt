@@ -102,3 +102,25 @@ that require a key which make your application insecure, you dont want that key 
 Using fetch to make request to that api
 
 18: URL and param
+pass parameter to the URL
+working with URL -> route
+    => import { useParams } from "react-router-dom";
+use : (colon?) to get data inside that component
+=> give data with destructuring with {} (curly braces)-> object to component
+    for example: this is our router:
+        <Route path="/definition/:search" element={<Definition />} />
+            in Definition component, we have an initial link to that which is /definition/
+                so the :search part will be our param
+                also that inside an object {}, so when we want to set search, we need to go inside it (destructuring) 
+                for example: let {search} = useParams();
+
+19. useNavigate
+force user to visit a new page with event handler (search bar)
+import { useNavigate } from "react-router-dom";
+    make sure to install it if it is not in package.json
+navigate also have option of go back the link (check gg 'history navigate') or redirect
+
+
+
+
+

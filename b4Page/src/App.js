@@ -12,7 +12,6 @@ import Definition from "./pages/Definition";
 // element component
 import Header from "./components/Header";
 
-
 // nesting component, where father component contain child components
 function App() {
 	/*put branket () when use several component*/
@@ -25,8 +24,8 @@ function App() {
 					<Routes>
 						{/*ANCHOR - structure of making a route: path = path and element = component */}
 						<Route path="/employees" element={<Employees />} />
-						<Route path="/dictionary" element={<Dictionary />} />
-						<Route path="/definition" element={<Definition />} />
+						<Route path="/dictionary" element={<Dictionary />} /> {/* // we are going to use search bar here */}
+						<Route path="/definition/:search" element={<Definition />} />
 						<Route path="/customers" element={<Customers />} />
 					</Routes>
 				</Header>
