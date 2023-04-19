@@ -126,4 +126,11 @@ redirect again back to dictionary using <Link>
     import { Link } from "react-router-dom";
 
 
+21. errors
+400s - client error
+500s server error
+check HTTP response status codes
+use !response.ok and thrown and catch error message
+
+22. styling
 

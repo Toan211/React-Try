@@ -26,7 +26,7 @@ function App() {
 						{/*ANCHOR - structure of making a route: path = path and element = component */}
 						<Route path="/employees" element={<Employees />} />
 						<Route path="/dictionary" element={<Dictionary />} /> {/* // we are going to use search bar here */}
-						<Route path="/definition/:search" element={<Definition />} />
+						<Route path="/dictionary/:search" element={<Definition />} />
 						<Route path="/customers" element={<Customers />} />
 						<Route path="/404" element={<NotFound />} />  {/* we want to catch all the garbage link in our link too*/}
 						<Route path="*" element={<NotFound />} /> {/* * mean anything beside the link we define*/}
