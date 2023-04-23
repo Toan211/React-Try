@@ -1,0 +1,136 @@
+this will summarize all contents of the lessons
+
+3. tailwind
+
+4. array of data (mapping) fetch from component and their unique key (uuid)
+
+5. modals component, react bootstrap
+modal = popup dialog
+Need to install npm and add css dist to outermost js file (index.js) 
+import 'bootstrap/dist/css/bootstrap.min.css'; (in index.js)
+
+6.form 
+
+7.update Employee
+employee: pass from app.js to Employee.js to EditEmployee.js
+provide the name and role to the modal field
+then on Change the value (variable from app.js->employee.js)
+
+For single page, avoid page refreshes, data must be update dynamically
+to change state from parent, need pass down a callback function to execute when we want to change the state in the original component   
+
+8.add new employee
+Make new component named AddEmployee.js 
+from app.js, make new function
+set employee list, take an exist employee + an additional employee 
+need clear up the state of add button (on form submit or button click) with setSth('')
+
+9.  
+pass component down as a property instead of function
+meanning pass direct from app -> edit instead of app -> employee -> edit
+define editEmployee inside app.js
+ 
+ 10.
+tailwind navbar
+need install npm @headlessui/react vs @heroicons/react
+
+11. 
+page
+switch page and highlight the active page
+extract employee file instead of put all thing in app.js
+surround pages with a header (page elements)
+make props of header, and render their child inside their tag
+
+12.router
+npm install neact-router-dom
+need import { BrowserRouter, Routes, Route } from "react-router-dom";
+    <BrowserRouter>
+        <Routes>
+            {/* structure of making a route: path = path and element = component */}
+            <Route path="/employees" element={<Employees />} />
+        </Routes>
+    </BrowserRouter>
+
+then change the route of the header
+
+13. active page
+NavLink have the active capability built into it 
+from "react-router-dom"
+NavLink use "to" to contain url 
+if the error of useLocation showup, meaning u are not within BrowserRouter (meaning header should also be inside that)
+if still error from BrowserRouter , use <> </>
+
+14. clean code vs fixing stuff from header
+class App should belong to app.js, meanwhile other belong to header.js,
+    so they can have all the style in the same way, after header
+
+15. use eff hook
+fetch data from api 
+Use effect: allow some section of code will execute anytimes states change
+                and it will run after the page initually loaded
+            something that happen when do something else, side effect
+    Mutation, subscription, timers, logging, and other side eff are not allow inside the function of component
+        cus of bug and stuff, so we can put these inside unse eff
+    Use effect execute once per page load & once per each change in state
+    UseEffect is a function 
+    It will update the state as it executes after the state is update 
+
+We want it to be defined within our functional component (meaning inside the {} of a function)
+
+16: useEffect with dependency array
+This is second function we can pass as a argument
+    Restrict what state we care about for useEffect to be trigger
+
+        no dependency array => update for any state change, and it will stack (not what we want)
+            for example: it will update whenever word1 or word2 update
+        empty dependency array [] => execute once        
+            for example: it will update only when page load    
+        value dependency array [word] => execute once        
+            for example: it will update only when word1 state is update, but WONT update when word2 state is update   
+                            and we can trust word1 is up to date, but word2 maybe outdate (useEffect will depend on word1 only)
+
+useEffect can have multiple times with different dependency
+There is also a thing call useEffect cleanup
+
+17: fetch data from API
+make Definition key
+often time for an API u need a key to identity your access to use that API
+that require a key which make your application insecure, you dont want that key out =>ppl use your key => u lose money
+    => use API key on the backend application ., connect to the backend
+        => for learning, use api no key
+
+Using fetch to make request to that api
+
+18: URL and param
+pass parameter to the URL
+working with URL -> route
+    => import { useParams } from "react-router-dom";
+use : (colon?) to get data inside that component
+=> give data with destructuring with {} (curly braces)-> object to component
+    for example: this is our router:
+        <Route path="/definition/:search" element={<Definition />} />
+            in Definition component, we have an initial link to that which is /definition/
+                so the :search part will be our param
+                also that inside an object {}, so when we want to set search, we need to go inside it (destructuring) 
+                for example: let {search} = useParams();
+
+19. useNavigate
+force user to visit a new page with event handler (search bar)
+import { useNavigate } from "react-router-dom";
+    make sure to install it if it is not in package.json
+navigate also have option of go back the link (check gg 'history navigate') or redirect
+
+20. 404
+redirect when response status hit 404
+redirect again back to dictionary using <Link>
+    import { Link } from "react-router-dom";
+
+
+21. errors
+400s - client error
+500s server error
+check HTTP response status codes
+use !response.ok and thrown and catch error message
+
+22. styling
+
