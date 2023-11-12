@@ -1,46 +1,15 @@
-import reactImg from "./assets/react-core-concepts.png";
+
+
+import Header from './components/Header.jsx'
+
+//REVIEW - if export like a default funtion
+import CoreConcept from './components/CoreConcept.jsx'
+//REVIEW - if export like a normal function
+//import {CoreConcept} from './components/CoreConcept.jsx'
+
 import {CORE_CONCEPTS} from './data.js'
 
-const reactDes = ["Fundamental ", "Core ", "To try "];
 
-let genRandomInt = (max) => {
-	return Math.floor(Math.random() * (max + 1));
-};
-
-function Header() {
-	let genDes = reactDes[genRandomInt(reactDes.length)];
-	return (
-		<header>
-			<img src={reactImg} alt="Stylized atom" />
-			<h1>React Essentials</h1>
-			<p>
-				{genDes} React concepts you will need for almost any app you are going
-				to build!
-			</p>
-		</header>
-	);
-}
-
-//NOTE - normal usage
-/* function CoreConcept(props) {
-	return (
-		<li>
-			<img src={props.image} alt={props.title} />
-			<h3>{props.title}</h3>
-			<p>{props.description}</p>
-		</li>
-	);
-} */
-
-function CoreConcept({image, title, description}) {
-	return (
-		<li>
-			<img src={image} alt={title} />
-			<h3>{title}</h3>
-			<p>{description}</p>
-		</li>
-	);
-}
 
 function App() {
 	return (

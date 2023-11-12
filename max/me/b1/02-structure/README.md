@@ -8,3 +8,5 @@ This using available template, not sure what is the diff tho
 
 3. component and props
 
+4. changing struture
+
