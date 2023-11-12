@@ -21,6 +21,17 @@ function Header() {
 	);
 }
 
+//NOTE - normal usage
+/* function CoreConcept(props) {
+	return (
+		<li>
+			<img src={props.image} alt={props.title} />
+			<h3>{props.title}</h3>
+			<p>{props.description}</p>
+		</li>
+	);
+} */
+
 function CoreConcept({image, title, description}) {
 	return (
 		<li>
@@ -39,6 +50,12 @@ function App() {
 				<section id="core-concepts">
 					<h2>Core concepts</h2>
           <ul>
+		  {/* //NOTE - normal usage
+			<CoreConcept
+              title="abc"
+              description="abc"
+              image={reactImg}
+              /> */}
             <CoreConcept
               title={CORE_CONCEPTS[0].title}
               description={CORE_CONCEPTS[0].description}
