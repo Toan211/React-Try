@@ -1,6 +1,6 @@
 
 
-import Header from './components/Header.jsx'
+import Header from './components/header/Header.jsx'
 
 //REVIEW - if export like a default funtion
 import CoreConcept from './components/CoreConcept.jsx'
