@@ -7,6 +7,8 @@ import CoreConcept from './components/CoreConcept.jsx'
 //REVIEW - if export like a normal function
 //import {CoreConcept} from './components/CoreConcept.jsx'
 
+import TabButton from './components/TabButton.jsx'
+
 import {CORE_CONCEPTS} from './data.js'
 
 
@@ -35,6 +37,16 @@ function App() {
               <CoreConcept {...CORE_CONCEPTS[3]} />
           </ul>
 				</section>
+
+        <section id='examples'>
+          <h2>Example</h2>
+          <menu>
+            <TabButton>Components</TabButton>
+            <TabButton>Components</TabButton>
+            <TabButton>Components</TabButton>
+            <TabButton>Components</TabButton>
+          </menu>
+        </section>
 			</main>
 		</div>
 	);
