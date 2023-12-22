@@ -3,9 +3,9 @@
 				example <tabButton>children here </tabButton>
 
 */
- export default function TabButton(props) {
+ export default function TabButton({children, onSelect}) {
 	return (
-		<li><button>{props.children}</button></li>
+		<li><button onClick={onSelect}>{children}</button></li>
 	);
 } 
 
