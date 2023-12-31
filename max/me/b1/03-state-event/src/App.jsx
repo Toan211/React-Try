@@ -14,7 +14,7 @@ import { CORE_CONCEPTS } from "./data.js";
 import { EXAMPLES } from "./data.js";
 
 function App() {
-	const [selectTopic, setSeclectTopic] = useState("components");
+	const [selectTopic, setSeclectTopic] = useState();
 	//NOTE -  useState must be called directly inside of the component function (at very top level), not nested inside of some other code.
 
 	/*REVIEW -   the first element selectedTopic will be the current data snapshot for this component execution cycle,
@@ -26,6 +26,21 @@ function App() {
 	function handleSelect(selectedButton) {
 		setSeclectTopic(selectedButton);
 		console.log(selectTopic);
+	}
+
+	/*REVIEW - //* 3 - use variable to store jsx code */
+	let tabContent = <p>Please select a topic.</p>;
+
+	if (selectTopic) {
+		tabContent = (
+			<div id="tab-content">
+				<h3>{EXAMPLES[selectTopic].title}</h3>
+				<p>{EXAMPLES[selectTopic].description}</p>
+				<pre>
+					<code>{EXAMPLES[selectTopic].code}</code>
+				</pre>
+			</div>
+		);
 	}
 
 	return (
@@ -65,20 +80,36 @@ function App() {
 						{/* Component is identifier */}
 						<TabButton onSelect={() => handleSelect("jsx")}>JSX</TabButton>
 						<TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
-						<TabButton onSelect={() => handleSelect("state")}>
-							State
-						</TabButton>
+						<TabButton onSelect={() => handleSelect("state")}>State</TabButton>
 					</menu>
-					<div id="tab-content">
-						<h3>{EXAMPLES[selectTopic].title}</h3>
-						<p>{EXAMPLES[selectTopic].description}</p>
-						<pre>
-							<code>
-                {EXAMPLES[selectTopic].code}
-              </code>
-						</pre>
-					</div>
-					{/* {selectTopic} */}
+
+					{/*REVIEW - //* 1 - use conditional tranditional if else */}
+					{/* {!selectTopic ? (
+						<p>Please select a topic.</p>
+					) : (
+						<div id="tab-content">
+							<h3>{EXAMPLES[selectTopic].title}</h3>
+							<p>{EXAMPLES[selectTopic].description}</p>
+							<pre>
+								<code>{EXAMPLES[selectTopic].code}</code>
+							</pre>
+						</div>
+					)} */}
+
+					{/*REVIEW - //* 2 - use AND operator */}
+					{/* {!selectTopic && <p>Please select a topic.</p>}
+					{selectTopic && (
+						<div id="tab-content">
+							<h3>{EXAMPLES[selectTopic].title}</h3>
+							<p>{EXAMPLES[selectTopic].description}</p>
+							<pre>
+								<code>{EXAMPLES[selectTopic].code}</code>
+							</pre>
+						</div>
+					)} */}
+
+          {/*REVIEW - //* 3 - use variable to store jsx code */}
+					{tabContent}
 				</section>
 			</main>
 		</div>
