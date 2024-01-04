@@ -16,3 +16,4 @@ This using available template, not sure what is the diff tho
 
 7.  Forward props between components to inner Elements
 
+8. use jsx as props's value (usecase multiple jsx slots)

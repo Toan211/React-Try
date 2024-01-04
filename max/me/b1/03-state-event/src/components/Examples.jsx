@@ -3,6 +3,7 @@ import { useState } from "react"; // to use useState event and hook
 
 import TabButton from "./TabButton.jsx";
 import Section from "./Section.jsx";
+import Tabs from "./Tabs.jsx";
 
 import { EXAMPLES } from "../data.js";
 
@@ -37,31 +38,32 @@ export default function Examples() {
     }
 
     return (
-        <Section title={'Example'} id="examples">
-            
-            <menu>
-                {/* static value from function */}
-                {/* <TabButton onSelect={handleSelect}>Components</TabButton> */}
+        <Section title={"Example"} id="examples">
+            <Tabs buttons={
+                <>
+                    {/* static value from function */}
+                    {/* <TabButton onSelect={handleSelect}>Components</TabButton> */}
 
-                {/* manually control and execute at will */}
-                <TabButton isActived={selectTopic === "components"} onClick={() => handleSelect("components")}>
-                    Components
-                </TabButton>
-                {/* Component is identifier */}
-                <TabButton isActived={selectTopic === "jsx"} onClick={() => handleSelect("jsx")}>
-                    JSX
-                </TabButton>
-                {/* isActived will yield true, if selectedTopic is equal to this components identifier, and false otherwise. */}
-                <TabButton isActived={selectTopic === "props"} onClick={() => handleSelect("props")}>
-                    Props
-                </TabButton>
-                <TabButton isActived={selectTopic === "state"} onClick={() => handleSelect("state")}>
-                    State
-                </TabButton>
-            </menu>
-
-            {/*REVIEW - //* 1 - use conditional tranditional if else */}
-            {/* {!selectTopic ? (
+                    {/* manually control and execute at will */}
+                    <TabButton isActived={selectTopic === "components"} onClick={() => handleSelect("components")}>
+                        Components
+                    </TabButton>
+                    {/* Component is identifier */}
+                    <TabButton isActived={selectTopic === "jsx"} onClick={() => handleSelect("jsx")}>
+                        JSX
+                    </TabButton>
+                    {/* isActived will yield true, if selectedTopic is equal to this components identifier, and false otherwise. */}
+                    <TabButton isActived={selectTopic === "props"} onClick={() => handleSelect("props")}>
+                        Props
+                    </TabButton>
+                    <TabButton isActived={selectTopic === "state"} onClick={() => handleSelect("state")}>
+                        State
+                    </TabButton>
+                </>
+            }>
+                
+                {/*REVIEW - //* 1 - use conditional tranditional if else */}
+                {/* {!selectTopic ? (
 						<p>Please select a topic.</p>
 					) : (
 						<div id="tab-content">
@@ -73,8 +75,8 @@ export default function Examples() {
 						</div>
 					)} */}
 
-            {/*REVIEW - //* 2 - use AND operator */}
-            {/* {!selectTopic && <p>Please select a topic.</p>}
+                {/*REVIEW - //* 2 - use AND operator */}
+                {/* {!selectTopic && <p>Please select a topic.</p>}
 					{selectTopic && (
 						<div id="tab-content">
 							<h3>{EXAMPLES[selectTopic].title}</h3>
@@ -85,8 +87,9 @@ export default function Examples() {
 						</div>
 					)} */}
 
-            {/*REVIEW - //* 3 - use variable to store jsx code */}
-            {tabContent}
+                {/*REVIEW - //* 3 - use variable to store jsx code */}
+                {tabContent}
+            </Tabs>
         </Section>
     );
 }
