@@ -10,3 +10,7 @@ This using available template, not sure what is the diff tho
 
 4. changing struture
 
+5. State event
+
+6. Split component for reusable and forward values between components
+
