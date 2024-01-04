@@ -1,6 +1,9 @@
 import { useState } from "react"; // to use useState event and hook
 // tell React that data changed and that will therefore cause React to update the UI.
 
+//NOTE - import { Fragment } from "react";
+// use <Fragment> or <> so we can get a jsx value to return
+
 import Header from "./components/header/Header.jsx";
 
 //REVIEW - if export like a default funtion
@@ -44,7 +47,7 @@ function App() {
   }
 
   return (
-    <div>
+    <>
       <Header />
       <main>
         <section id="core-concepts">
@@ -121,7 +124,7 @@ function App() {
           {tabContent}
         </section>
       </main>
-    </div>
+    </>
   );
 }
 
