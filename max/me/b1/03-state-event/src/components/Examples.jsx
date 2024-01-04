@@ -2,6 +2,7 @@ import { useState } from "react"; // to use useState event and hook
 // tell React that data changed and that will therefore cause React to update the UI.
 
 import TabButton from "./TabButton.jsx";
+import Section from "./Section.jsx";
 
 import { EXAMPLES } from "../data.js";
 
@@ -36,25 +37,25 @@ export default function Examples() {
     }
 
     return (
-        <section id="examples">
-            <h2>Example</h2>
+        <Section title={'Example'} id="examples">
+            
             <menu>
                 {/* static value from function */}
                 {/* <TabButton onSelect={handleSelect}>Components</TabButton> */}
 
                 {/* manually control and execute at will */}
-                <TabButton isActived={selectTopic === "components"} onSelect={() => handleSelect("components")}>
+                <TabButton isActived={selectTopic === "components"} onClick={() => handleSelect("components")}>
                     Components
                 </TabButton>
                 {/* Component is identifier */}
-                <TabButton isActived={selectTopic === "jsx"} onSelect={() => handleSelect("jsx")}>
+                <TabButton isActived={selectTopic === "jsx"} onClick={() => handleSelect("jsx")}>
                     JSX
                 </TabButton>
                 {/* isActived will yield true, if selectedTopic is equal to this components identifier, and false otherwise. */}
-                <TabButton isActived={selectTopic === "props"} onSelect={() => handleSelect("props")}>
+                <TabButton isActived={selectTopic === "props"} onClick={() => handleSelect("props")}>
                     Props
                 </TabButton>
-                <TabButton isActived={selectTopic === "state"} onSelect={() => handleSelect("state")}>
+                <TabButton isActived={selectTopic === "state"} onClick={() => handleSelect("state")}>
                     State
                 </TabButton>
             </menu>
@@ -86,6 +87,6 @@ export default function Examples() {
 
             {/*REVIEW - //* 3 - use variable to store jsx code */}
             {tabContent}
-        </section>
+        </Section>
     );
 }

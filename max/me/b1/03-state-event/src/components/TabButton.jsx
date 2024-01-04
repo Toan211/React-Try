@@ -3,9 +3,18 @@
 				example <tabButton>children here </tabButton>
 
 */
- export default function TabButton({children, onSelect, isActived}) {
+
+//* Normal usage
+/*  export default function TabButton({children, onSelect, isActived}) {
 	return (
 		<li><button className={isActived ? 'active' : undefined} onClick={onSelect}>{children}</button></li>
+	);
+}  */
+
+//* forward props
+export default function TabButton({children, isActived, ...props}) {
+	return (
+		<li><button className={isActived ? 'active' : undefined} {...props}>{children}</button></li>
 	);
 } 
 

@@ -14,5 +14,5 @@ This using available template, not sure what is the diff tho
 
 6. Split component for reusable
 
-
+7.  Forward props between components to inner Elements
 
