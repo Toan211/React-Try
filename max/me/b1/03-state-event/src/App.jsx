@@ -5,15 +5,10 @@ import { useState } from "react"; // to use useState event and hook
 // use <Fragment> or <> so we can get a jsx value to return
 
 import Header from "./components/header/Header.jsx";
-
-//REVIEW - if export like a default funtion
-import CoreConcept from "./components/CoreConcept.jsx";
-//REVIEW - if export like a normal function
-//import {CoreConcept} from './components/CoreConcept.jsx'
+import CoreConcepts from "./components/CoreConcepts.jsx";
 
 import TabButton from "./components/TabButton.jsx";
 
-import { CORE_CONCEPTS } from "./data.js";
 import { EXAMPLES } from "./data.js";
 
 function App() {
@@ -50,33 +45,7 @@ function App() {
     <>
       <Header />
       <main>
-        <section id="core-concepts">
-          <h2>Core concepts</h2>
-          <ul>
-            {/* //NOTE - normal usage
-			<CoreConcept
-              title="abc"
-              description="abc"
-              image={reactImg}
-              /> */}
-
-            {/*NOTE //* - Output list data Dynamically */}
-            {/* <CoreConcept
-              title={CORE_CONCEPTS[0].title}
-              description={CORE_CONCEPTS[0].description}
-              image={CORE_CONCEPTS[0].image}
-            />
-            <CoreConcept {...CORE_CONCEPTS[1]} />
-            <CoreConcept {...CORE_CONCEPTS[2]} />
-            <CoreConcept {...CORE_CONCEPTS[3]} /> */}
-
-            {
-              CORE_CONCEPTS.map((conceptItem)=>(
-                <CoreConcept key={conceptItem.title} {...conceptItem} />
-              ))
-            }
-          </ul>
-        </section>
+        <CoreConcepts/>
 
         <section id="examples">
           <h2>Example</h2>
