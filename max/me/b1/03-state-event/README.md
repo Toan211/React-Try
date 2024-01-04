@@ -12,5 +12,7 @@ This using available template, not sure what is the diff tho
 
 5. State event
 
-6. Split component for reusable and forward values between components
+6. Split component for reusable
+
+
 
