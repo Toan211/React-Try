@@ -1,5 +1,5 @@
 
-export default function Tabs({children, buttons, ButtonsContainer}) {
+export default function Tabs({children, buttons, ButtonsContainer = 'menu'}) {
 
 	//* we can use this as away to make wrapper inside component, or use shortcut by simply pass ButtonsContainer
 	//NOTE - we call this remap
