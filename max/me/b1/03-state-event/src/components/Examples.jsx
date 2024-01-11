@@ -39,8 +39,10 @@ export default function Examples() {
 
     return (
         <Section title={"Example"} id="examples">
-            <Tabs buttons={
-                <>
+            <Tabs 
+            ButtonsContainer="menu" //custom wrapper
+            buttons={
+                <>  
                     {/* static value from function */}
                     {/* <TabButton onSelect={handleSelect}>Components</TabButton> */}
 
